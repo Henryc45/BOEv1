@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body class="lo-body">
+    <%- include('../partials/nav'); %>
+    <section class="lo-section-main lo-section-widgets">
+      <div class="lo-container lo-profile-card lo-profile-card-sm-h">
+        <section class="lo-profile-card-img-side">
+          <div class="lo-avatar-wrapper">
+            <!-- insert user profile photo here: -->
+            <!-- <img
+              class="lo-avatar"
+              src="user.image" // this image variable is an example - not yet coded. must be added to userSchema
+              alt="user avatar or profile photo"
+            /> -->
+          </div>
+        </section>
+        <section class="lo-profile-card-text-side">
+          <h5>
+            <% if (firstName) { %> <%= firstName %> <% } %> <% if (lastName) {
+            %> <%= lastName %> <% } %>
+          </h5>
+          <% if (email) { %>
+          <p>
+            <a href="mailto:<%=email%>"><%=email%></a>
+          </p>
+          <% } %> <% if (date) { %>
+          <p>
+            Member since <%= date.toLocaleDateString("en-us", { year:'numeric',
+            month: 'long', day: 'numeric' }) %>
+          </p>
+          <% } %>
+        </section>
+        <aside class="lo-dot-menu">
+          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        </aside>
+      </div>
+      <div class="lo-container lo-container-profile-favorites">
+        <!-- Favorites List -->
+        <%- include('../partials/listings-favorites'); %>
+        <aside class="lo-dot-menu">
+          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        </aside>
+      </div>
+    </section>
+    <%- include('../partials/footer'); %>
+  </body>
+</html>
